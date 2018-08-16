@@ -1,6 +1,8 @@
 package app
 
 import (
+	"os"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -8,7 +10,13 @@ var router *gin.Engine
 
 func Start() {
 	ConfigureRouter()
-	router.Run(":8080")
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = "8080"
+	}
+
+	router.Run(":" + port)
 }
 
 func ConfigureRouter() {
