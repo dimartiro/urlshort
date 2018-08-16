@@ -3,14 +3,14 @@ package services
 import (
 	"regexp"
 
-	"github.com/dimartiro/urlshort/model"
+	"github.com/dimartiro/urlshort/api/src/model"
 )
 
 const URL_SIZE = 7
 
 func Short(url string) string {
 
-	regex, _ := regexp.Compile("^(http|https)(://)")
+	regex := regexp.MustCompile("^(http|https)(://)")
 
 	if !regex.Match([]byte(url)) {
 		url = "http://" + url

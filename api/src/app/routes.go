@@ -1,7 +1,7 @@
 package app
 
 import (
-	"github.com/dimartiro/urlshort/controllers"
+	"github.com/dimartiro/urlshort/api/src/controllers"
 )
 
 func mapUrlsToControllers() {

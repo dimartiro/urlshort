@@ -3,7 +3,7 @@ package controllers
 import (
 	"net/http"
 
-	"github.com/dimartiro/urlshort/services"
+	"github.com/dimartiro/urlshort/api/src/services"
 	"github.com/gin-gonic/gin"
 )
 
