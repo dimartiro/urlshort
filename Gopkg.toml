@@ -24,6 +24,9 @@
 #   go-tests = true
 #   unused-packages = true
 
+[metadata.heroku]
+  root-package = "github.com/dimartiro/urlshort"
+  go-version = "1.10.3"
 
 [prune]
   go-tests = true
