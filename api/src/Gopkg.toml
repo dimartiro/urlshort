@@ -25,7 +25,7 @@
 #   unused-packages = true
 
 [metadata.heroku]
-  root-package = "github.com/dimartiro/urlshort"
+  root-package = "github.com/dimartiro/urlshort/api/src"
   go-version = "1.10.3"
 
 [prune]
