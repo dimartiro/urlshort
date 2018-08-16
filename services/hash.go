@@ -7,11 +7,11 @@ import (
 )
 
 func HashUrl(url string, size int) string {
-	h := md5.New()
-	hashSum := h.Sum([]byte(url))
 	regex, _ := regexp.Compile("[.|-|+|=]")
 
-	hash := string(regex.ReplaceAll([]byte(base64.StdEncoding.EncodeToString(hashSum)), []byte("")))
+	hashSum := md5.Sum([]byte(url))
+	base64Encoded := base64.StdEncoding.EncodeToString(hashSum[:])
+	hash := string(regex.ReplaceAll([]byte(base64Encoded), []byte("")))
 
 	return hash[:size]
 }
