@@ -5,7 +5,10 @@ services:
     ports:
       - 8080
     environment:
-      - GIN_MODE=release
+      # - GIN_MODE=release
+      - DB_CONN_STR=postgres:@localhost:5432/dev
+    depends_on:
+      - db
   
   nginx:
     build: ./nginx
@@ -13,3 +16,8 @@ services:
       - 80:80
     depends_on:
       - api
+
+  db:
+    build: ./db
+    ports:
+      - 5432:5432

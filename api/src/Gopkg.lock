@@ -39,6 +39,17 @@
   version = "1.1.5"
 
 [[projects]]
+  branch = "master"
+  digest = "1:37ce7d7d80531b227023331002c0d42b4b4b291a96798c82a049d03a54ba79e4"
+  name = "github.com/lib/pq"
+  packages = [
+    ".",
+    "oid",
+  ]
+  pruneopts = "UT"
+  revision = "90697d60dd844d5ef6ff15135d0203f65d2f53b8"
+
+[[projects]]
   digest = "1:d4d17353dbd05cb52a2a52b7fe1771883b682806f68db442b436294926bbfafb"
   name = "github.com/mattn/go-isatty"
   packages = ["."]
@@ -61,14 +72,6 @@
   pruneopts = "UT"
   revision = "4b7aa43c6742a2c18fdef89dd197aaae7dac7ccd"
   version = "1.0.1"
-
-[[projects]]
-  branch = "master"
-  digest = "1:58528b7d8b0ff10b488550de326c90e957fb39568163bf9929bebafe74572339"
-  name = "github.com/tuxxy/base62"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "57b93d06afa07afb38f85608c7e4a9d26811cc6d"
 
 [[projects]]
   digest = "1:03aa6e485e528acb119fb32901cf99582c380225fc7d5a02758e08b180cb56c3"
@@ -107,7 +110,7 @@
   analyzer-version = 1
   input-imports = [
     "github.com/gin-gonic/gin",
-    "github.com/tuxxy/base62",
+    "github.com/lib/pq",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1

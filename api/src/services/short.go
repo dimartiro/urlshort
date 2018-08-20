@@ -1,14 +1,15 @@
 package services
 
 import (
+	"fmt"
 	"regexp"
 
-	"github.com/dimartiro/urlshort/api/src/model"
+	"github.com/dimartiro/urlshort/api/src/dao"
 )
 
 const URL_SIZE = 7
 
-func Short(url string) string {
+func Short(url string) (string, error) {
 
 	regex := regexp.MustCompile("^(http|https)(://)")
 
@@ -18,7 +19,10 @@ func Short(url string) string {
 
 	hashedUrl := HashUrl(url, URL_SIZE)
 
-	model.SaveHashToUrl(hashedUrl, url)
+	if err := dao.SaveHashUrlInDB(hashedUrl, url); err != nil {
+		fmt.Println("Error saving hashed url " + err.Error())
+		return "", err
+	}
 
-	return hashedUrl
+	return hashedUrl, nil
 }

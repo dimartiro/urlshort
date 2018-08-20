@@ -10,7 +10,12 @@ import (
 func Short(c *gin.Context) {
 	url := c.Query("url")
 
-	hashedUrl := services.Short(url)
+	hashedUrl, err := services.Short(url)
+
+	if err != nil {
+		c.String(http.StatusInternalServerError, "Error generating and saving URL")
+		return
+	}
 
 	c.String(http.StatusOK, hashedUrl)
 }

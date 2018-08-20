@@ -1,0 +1,5 @@
+CREATE DATABASE dev;
+CREATE TABLE dev.links (
+   hash VARCHAR(10) PRIMARY KEY,
+   url VARCHAR(255) NOT NULL
+);
