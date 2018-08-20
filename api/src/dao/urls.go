@@ -9,10 +9,6 @@ import (
 )
 
 var pgConnStr string = os.Getenv("DB_CONN_STR")
-var pgHost string = os.Getenv("DB_HOST")
-var pgUser string = os.Getenv("DB_USER")
-var pgDb string = os.Getenv("DB_DATABASE")
-var dbinfo string = fmt.Sprintf("host=%s user=%s dbname=%s sslmode=disable", pgHost, pgUser, pgDb)
 
 func SaveHashUrlInDB(hash, url string) error {
 	db, err := sql.Open("postgres", pgConnStr)
@@ -38,7 +34,7 @@ func SaveHashUrlInDB(hash, url string) error {
 }
 
 func GetUrlFromHashFromDB(hash string) (string, error) {
-	db, err := sql.Open("postgres", dbinfo)
+	db, err := sql.Open("postgres", pgConnStr)
 
 	if err != nil {
 		return "", err
